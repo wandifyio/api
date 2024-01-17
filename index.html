@@ -448,6 +448,65 @@
 
 <span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
 </code></pre></div>
+<blockquote>
+<p>Example respose</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"locationName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Redmond, Washington, United States"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Satya"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nadella"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"headline"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Senior Software Engineer"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.linkedin.com/in//example_person"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"publicIdentifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example_person"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"summary"</span><span class="p">:</span><span class="w"> </span><span class="s2">"An experienced professional with over 15 years in Software Engineering"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"picture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://media.licdn.com/dms/image/C5603AQHHUuOSlRVA1w/profile-displayphoto-shrink_200_200/0/1579726625398?e=1710979200&amp;v=beta&amp;t=BEvT1JTj3Af7dMrjaAdEkAxJETNCoLwQM-vG9nIQuGk"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"openToWork"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"positions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"startYear"</span><span class="p">:</span><span class="w"> </span><span class="mi">2014</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"startMonth"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"durationMonth"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"durationYear"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"companyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Amazon"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chairman and CEO"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"locationName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Greater Seattle Area"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"educations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"degreeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bachelor's Degree"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"fieldOfStudy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Electrical Engineering"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"schoolName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Manipal Institute of Technology, Manipal"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+     </span><span class="nl">"certifications"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"startYear"</span><span class="p">:</span><span class="w"> </span><span class="mi">2020</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"startMonth"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"endYear"</span><span class="p">:</span><span class="w"> </span><span class="mi">2023</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"endMonth"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"durationMonth"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"durationYear"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AWS Certified Solutions Architect – Associate"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"authority"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Amazon Web Services (AWS)"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"skills"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"skillName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Software Engineering"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"skillName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Java"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"languages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"English"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"level"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FULL_PROFESSIONAL"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
 <p>Search profile full information</p>
 <h3 id='http-request-2'>HTTP Request</h3>
 <p><code>https://wandify.io/api/v1/searchProfile</code></p>
