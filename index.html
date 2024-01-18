@@ -374,7 +374,8 @@
 <blockquote>
 <p>Example request</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>  curl <span class="nt">-X</span> GET <span class="s2">"https://wandify.io/api/v1/auth/health?apiKey=your_api_key"</span> <span class="nt">-w</span> <span class="s2">"%{http_code}</span><span class="se">\n</span><span class="s2">"</span> <span class="nt">-o</span> /dev/null 2&gt;/dev/null
+<div class="highlight"><pre class="highlight shell tab-shell"><code>  curl <span class="nt">-X</span> GET <span class="s2">"https://wandify.io/api/v1/auth/health?apiKey=your_api_key"</span><span class="se">\</span>
+   <span class="nt">-w</span> <span class="s2">"%{http_code}</span><span class="se">\n</span><span class="s2">"</span> <span class="nt">-o</span> /dev/null 2&gt;/dev/null
 </code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="n">url</span> <span class="o">=</span> <span class="s">"https://wandify.io/api/v1/auth/health"</span>
