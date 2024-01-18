@@ -318,12 +318,22 @@
           </li>
           <li>
             <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#example-request" class="toc-h2 toc-link" data-title="Example request">Example request</a>
+                  </li>
+              </ul>
           </li>
           <li>
             <a href="#rate-limits" class="toc-h1 toc-link" data-title="Rate limits">Rate limits</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#rate-limits-2" class="toc-h2 toc-link" data-title="Rate limits">Rate limits</a>
+                  </li>
+              </ul>
           </li>
           <li>
-            <a href="#contacts-search-api" class="toc-h1 toc-link" data-title="Contacts search API">Contacts search API</a>
+            <a href="#contact-enrichment" class="toc-h1 toc-link" data-title="Contact enrichment">Contact enrichment</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#http-request" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
@@ -334,7 +344,7 @@
               </ul>
           </li>
           <li>
-            <a href="#search-profile-api" class="toc-h1 toc-link" data-title="Search profile API">Search profile API</a>
+            <a href="#profile-enrichment" class="toc-h1 toc-link" data-title="Profile enrichment">Profile enrichment</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#http-request-2" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
@@ -346,19 +356,50 @@
           </li>
       </ul>
         <ul class="toc-footer">
-            <li><a href="https://wandify.io/user/api">Sign Up for a Developer Key</a></li>
+            <li><a href="https://wandify.io/en/auth/login">Sign Up for a Developer Key</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
-<p>Welcome to the Wandify API!</p>
+<p>Welcome to Wandify’s API!</p>
+
+<p>Seamlessly integrate with our platform to empower your applications and uncover valuable insights. Whether you’re enhancing contact information, exploring organizational details, or optimizing sales and recruitment processes, our API provides a flexible and comprehensive solution tailored to meet your diverse needs.</p>
 <h1 id='authentication'>Authentication</h1>
-<p>Each request require you to send API Key. You can generate it <a href="https://wandify.io/user/api">here</a>.</p>
+<p>Wandify uses API keys to allow access to the API. You may request an API key <a href="https://wandify.io/user/api">here</a>.</p>
+
+<p>Wandify expects the API key to be included in all API requests to the server as a query string parameter.</p>
+
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>  curl <span class="nt">-X</span> GET <span class="s2">"https://wandify.io/api/v1/auth/health?apiKey=your_api_key"</span> <span class="nt">-w</span> <span class="s2">"%{http_code}</span><span class="se">\n</span><span class="s2">"</span> <span class="nt">-o</span> /dev/null 2&gt;/dev/null
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://wandify.io/api/v1/auth/health"</span>
+
+<span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">"apiKey"</span><span class="p">:</span> <span class="s">"your_api_key"</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">response</span><span class="p">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+ <span class="k">print</span><span class="p">(</span><span class="s">'Auth ok'</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+ <span class="k">print</span><span class="p">(</span><span class="s">'Auth error'</span><span class="p">);</span>
+</code></pre></div><h3 id='example-request'>Example request</h3>
+<p><code>https://wandify.io/api/v1/auth/health</code></p>
+
+<aside class="notice">
+  If authentication is successful, you should expect to see status 200
+</aside>
 <h1 id='rate-limits'>Rate limits</h1>
-<p>Requests to our API will be limited in accordance with your current pricing plan.</p>
-<h1 id='contacts-search-api'>Contacts search API</h1>
+<p>Requests to our API will be limited by different type of credits  in accordance with your current pricing plan, detailed <a href="http://localhost:4200/en/user/billing">here</a></p>
+<h3 id='rate-limits-2'>Rate limits</h3>
+<p>For each endpoints, the limit is 10 requests per second.</p>
+<h1 id='contact-enrichment'>Contact enrichment</h1>
 <blockquote>
 <p>Example request</p>
 </blockquote>
@@ -366,10 +407,10 @@
  <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span><span class="se">\</span>
  <span class="nt">-d</span> <span class="s2">"apiKey=YOUR API KEY"</span><span class="se">\</span>
  <span class="nt">-d</span> <span class="s2">"url=PROFILE URL"</span><span class="se">\</span>
-  <span class="s2">"https://test.wandify.io/api/v1/searchContacts"</span>
+  <span class="s2">"https://wandify.io/api/v1/searchContacts"</span>
 </code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">"https://test.wandify.io/api/v1/searchContacts"</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://wandify.io/api/v1/searchContacts"</span>
 
 <span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">"apiKey"</span><span class="p">:</span> <span class="s">"YOUT GENERATED API KEY"</span><span class="p">,</span>
@@ -402,7 +443,7 @@
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div>
-<p>Search for proffesionals contacts by their proffile url on platforms such as linkedin, stackoverflow.</p>
+<p>This endpoint enriches a profile contact information. The input only accepts LinkedIn regular URLs, not Sales Navigator or Talent / Recruiter LinkedIn products. It will deduct 1 contact credit for each non-empty record returned</p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>https://wandify.io/api/v1/searchContacts</code></p>
 <h3 id='query-parameters'>Query parameters</h3>
@@ -418,10 +459,10 @@
 </tr>
 <tr>
 <td>url</td>
-<td>Profile url from linkedin, github or stackoverflow.</td>
+<td>Profile url from linkedin.</td>
 </tr>
 </tbody></table>
-<h1 id='search-profile-api'>Search profile API</h1>
+<h1 id='profile-enrichment'>Profile enrichment</h1>
 <blockquote>
 <p>Example request</p>
 </blockquote>
@@ -429,10 +470,10 @@
  <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span><span class="se">\</span>
  <span class="nt">-d</span> <span class="s2">"apiKey=YOUR API KEY"</span><span class="se">\</span>
  <span class="nt">-d</span> <span class="s2">"url=PROFILE URL"</span><span class="se">\</span>
-  <span class="s2">"https://test.wandify.io/api/v1/searchProfile"</span>
+  <span class="s2">"https://wandify.io/api/v1/searchProfile"</span>
 </code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">"https://test.wandify.io/api/v1/searchProfile"</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://wandify.io/api/v1/searchProfile"</span>
 
 <span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">"apiKey"</span><span class="p">:</span> <span class="s">"YOUT GENERATED API KEY"</span><span class="p">,</span>
@@ -507,7 +548,7 @@
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p>Search profile full information</p>
+<p>This endpoint enriches a person’s information. The input only accepts LinkedIn regular URLs, not Sales Navigator or Talent / Recruiter LinkedIn products. It will deduct 1 export credit for each non-empty record returned.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
 <p><code>https://wandify.io/api/v1/searchProfile</code></p>
 <h3 id='query-parameters-2'>Query parameters</h3>
@@ -523,7 +564,7 @@
 </tr>
 <tr>
 <td>url</td>
-<td>Profile url from linkedin, github or stackoverflow.</td>
+<td>Profile url from linkedin.</td>
 </tr>
 </tbody></table>
 
